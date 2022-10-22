@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>List of Games</title>
+    <meta charset="utf8" />
+
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://unicons.iconscout.com/release/v2.1.9/css/unicons.css'>
+    <link rel="stylesheet" href="cards.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="card-rotate.css">
+</head>
+
+<body class="hero-anime dark">
+    <!--Header-->
+    <div class="navigation-wrap bg-light start-header start-style">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="navbar navbar-expand-md navbar-light">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                            <ul class="navbar-nav ml-auto py-4 py-md-0">
+                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                    <a class="nav-link" href="/menu">Home</a>
+                                </li>
+                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="" role="button"
+                                        aria-haspopup="true" aria-expanded="false">Games</a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="/listGames">List Games</a>
+                                        <a class="dropdown-item" href="/createGame">Create Game</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="" role="button"
+                                        aria-haspopup="true" aria-expanded="false">Users</a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="/listUser">List Users</a>
+                                        <a class="dropdown-item" href="/register">Register User</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="" role="button"
+                                        aria-haspopup="true" aria-expanded="false">Teams</a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="/listTeams">List Teams</a>
+                                        <a class="dropdown-item" href="/createTeam">Create Team</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                    <a class="nav-link" href="/listPlayers">Players</a>
+                                </li>
+                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                    <a class="nav-link" href="/printStats?old_d=1&d=0">Statistics</a>
+                                </li>
+                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                    <a class="nav-link" href="#">Contact</a>
+                                </li>
+                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                    <a class="nav-link" th:href="@{logOut}">Logout</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Content-->
+    <div class="section over-hide mt-5">
+        <div class="container mt-5">
+            <tr th:each="g : ${games}">
+                <div class="wrapper">
+                    <div class="card">
+                        <div class="front">
+                            <div class="d-flex flex-row justify-content-center text-center">
+                                <img th:src="${g.team1.logo}" class="w-50 h-50" alt="team1" />
+                                <img src="https://i.postimg.cc/25Cq6k1d/vs-transformed-removebg-preview.png"
+                                    class="w-50 h-50" alt="vs" />
+                                <img th:src="${g.team2.logo}" class="w-50 h-50" alt="team2" />
+                            </div>
+                            <div class="d-flex flex-row justify-content-center mt-5">
+                                <h5>
+                                    <td th:text="${g.location}"></td>
+                                </h5>
+                            </div>
+                            <div class="d-flex flex-row justify-content-center mt-2">
+                                <h5>
+                                    <td th:text="${g.data}"></td>
+                                </h5>
+                            </div>
+                            <div class="d-flex flex-row justify-content-center">
+                                <h5>
+                                    <td th:text="${g.score1}"></td> - <td th:text="${g.score2}">
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="right">
+                            <h2>Events</h2>
+                            <p><a th:href="@{gameDetails(id=${g.id})}">More details</a></p>
+                            <p><a th:href="@{addEvent(id=${g.id})}">Add Event</a></p>
+                            <p><a th:href="@{checkEvents(id=${g.id})}">Check Events</a></p>
+                        </div>
+                    </div>
+                </div>
+            </tr>
+        </div>
+    </div>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'></script>
+    <script src="./script.js"></script>
+
+</body>
+
+</html>

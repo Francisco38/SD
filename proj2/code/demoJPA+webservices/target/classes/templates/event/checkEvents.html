@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <table border="1">
+        <tr>
+            <th>TIME</th>
+            <th>MESSAGE</th>
+            <th>ACCEPT</th>
+            <th>DENY</th>
+        </tr>
+        <tr th:each="e : ${game.events_Check}">
+            <td th:text="${e.data}">Time</td>
+            <td th:text="${e.message}">Message</td>
+            <td><a th:href="@{acceptEvent(id=${e.id})}">Accept Events</a></td>
+            <td><a th:href="@{denyEvent(id=${e.id})}">Deny Events</a></td>
+        </tr>
+    </table>
+    <p><a th:href="@{menu}">Menu</a></p>
+</body>
+
+</html>

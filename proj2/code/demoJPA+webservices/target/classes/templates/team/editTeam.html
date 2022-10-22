@@ -1,0 +1,31 @@
+<form th:action="@{/saveTeam}" th:object="${team}" method="post">
+    <div="form-row">
+        <div>
+            <input type="hidden" th:field="*{id}">
+        </div>
+        <div>
+            <label>Name</label>
+            <input type="text" th:field="*{name}">
+        </div>
+        <div>
+            <label>Code</label>
+            <input type="text" th:field="*{code}">
+        </div>
+        <div>
+            <label>Country</label>
+            <input type="text" th:field="*{country}">
+        </div>
+        <div>
+            <label>Founded</label>
+            <input type="text" th:field="*{founded}">
+        </div>
+        <div>
+            <label>Logo</label>
+            <input type="text" th:field="*{logo}">
+        </div>
+        <div>
+            <input type="hidden" th:field="*{players}">
+        </div>
+        <button type="submit">Edit/Create Team</button>
+        </div>
+</form>

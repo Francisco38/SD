@@ -1,0 +1,33 @@
+<form th:action="@{/savePlayers}" th:object="${player}" method="post">
+    <div="form-row">
+        <div th:if="${player.name != null}">
+            <div>
+                <input type="hidden" th:field="*{team_id}">
+            </div>
+            <div>
+                <label>Id</label>
+                <input type="text" th:field="*{id}" th:placeholder="${player.id}">
+            </div>
+            <div>
+                <label>Name</label>
+                <input type="text" th:field="*{name}" th:placeholder="${player.name}">
+            </div>
+            <div>
+                <label>Age</label>
+                <input type="text" th:field="*{age}" th:placeholder="${player.age}">
+            </div>
+            <div>
+                <label>Number</label>
+                <input type="text" th:field="*{number}" th:placeholder="${player.number}">
+            </div>
+            <div>
+                <label>Position</label>
+                <input type="text" th:field="*{position}" th:placeholder="${player.position}">
+            </div>
+            <div>
+                <label>photo</label>
+                <input type="text" th:field="*{photo}" th:placeholder="${player.photo}">
+            </div>
+            <button type="submit">Edit Player</button>
+        </div>
+</form>

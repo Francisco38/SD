@@ -1,0 +1,21 @@
+<form th:action="@{/compTeams}" th:object="${values}" method="post">
+    <div="form-row">
+        <div>
+            <label for="game">Choose team 1:</label>
+            <select th:field="*{team1}">
+                <tr th:each="t : ${allTeams}">
+                    <option th:value="${t.id}" th:text="${t.name}"></option>
+                </tr>
+            </select>
+        </div>
+        <div>
+            <label for="game">Choose team 2:</label>
+            <select th:field="*{team2}">
+                <tr th:each="t : ${allTeams}">
+                    <option th:value="${t.id}" th:text="${t.name}"></option>
+                </tr>
+            </select>
+        </div>
+        <button type="submit">Edit/Create Game</button>
+        </div>
+</form>

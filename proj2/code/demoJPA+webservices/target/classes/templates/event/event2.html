@@ -1,0 +1,31 @@
+<form th:action="@{/saveEvent}" th:object="${event}" method="post">
+    <div="form-row">
+        <div>
+            <input type="hidden" th:field="*{game_id}">
+        </div>
+        <div>
+            <input type="hidden" th:field="*{type}">
+        </div>
+        <div>
+            <label>time</label>
+            <input type="time" th:field="*{data}">
+        </div>
+        <div>
+            <div>
+                <label for="game">Choose player:</label>
+                <select th:field="*{player_id}">
+                    <optgroup th:label="${game.team1.name}">
+                        <tr th:each="t : ${game.team1.players}">
+                            <option th:value="${t.id}" th:text="${t.name}"></option>
+                        </tr>
+                    </optgroup>
+                    <optgroup th:label="${game.team2.name}">
+                        <tr th:each="t : ${game.team2.players}">
+                            <option th:value="${t.id}" th:text="${t.name}"></option>
+                        </tr>
+                    </optgroup>
+                </select>
+            </div>
+        </div>
+        <button type="submit">Create event</button>
+</form>

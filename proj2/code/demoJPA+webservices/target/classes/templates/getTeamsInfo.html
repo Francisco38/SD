@@ -1,0 +1,68 @@
+<form th:action="@{/compTeams}" th:object="${values}" method="post">
+    <div="form-row">
+        <div>
+            <label for="game">Choose team 1:</label>
+            <select th:field="*{team1}">
+                <tr th:each="t : ${allTeams}">
+                    <option th:value="${t.id}" th:text="${t.name}"></option>
+                </tr>
+            </select>
+        </div>
+        <div>
+            <label for="game">Choose team 2:</label>
+            <select th:field="*{team2}">
+                <tr th:each="t : ${allTeams}">
+                    <option th:value="${t.id}" th:text="${t.name}"></option>
+                </tr>
+            </select>
+        </div>
+        <button type="submit">Get Info</button>
+        </div>
+</form>
+
+<h2>
+    <td th:text="${team1.name}"></td> vs <td th:text="${team2.name}"></td>
+</h2>
+<p><img th:src="${team1.logo}" class=" card__image" alt="" /> - <img th:src="${team2.logo}" class=" card__image"
+        alt="" /> </p>
+<p>
+    <b>Total games: </b>
+    <td th:text="${info.numberOfGames}"></td>
+</p>
+<p>
+    <b>
+        <td th:text="${team1.name}"></td> victorys:
+    </b>
+    <td th:text="${info.wins}"></td>
+</p>
+<p>
+    <b>
+        <td th:text="${team2.name}"></td> victorys:
+    </b>
+    <td th:text="${info.def}"></td>
+</p>
+<p>
+    <b>Ties:</b>
+    <td th:text="${info.emp}"></td>
+</p>
+<table border="1">
+    <tr>
+        <a href='#'></a>
+        <th>TEAM</th>
+        <th>GOALS</th>
+        <th>RED CARDS</th>
+        <th>YELLOW CARDS</th>
+    </tr>
+    <tr>
+        <td th:text="${team1.name}">Name</td>
+        <td th:text="${info.goals1}">goals</td>
+        <td th:text="${info.red1}">red</td>
+        <td th:text="${info.yellow1}">yellow</td>
+    </tr>
+    <tr>
+        <td th:text="${team2.name}">Name</td>
+        <td th:text="${info.goals2}">goals</td>
+        <td th:text="${info.red2}">red</td>
+        <td th:text="${info.yellow2}">yellow</td>
+    </tr>
+</table>
