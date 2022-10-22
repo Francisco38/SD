@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>List of Teams</title>
+    <meta charset="utf8" />
+</head>
+
+<body>
+    <h1>List of Teams</h1>
+
+    <table border="1">
+        <tr>
+            <a href='#'></a>
+            <th><a th:href="@{printStats(old_d=${v},d=0)}">ID</a></th>
+            <th><a th:href="@{printStats(old_d=${v},d=1)}">TOTAL GAMES</a></th>
+            <th><a th:href="@{printStats(old_d=${v},d=2)}">WINS</a></th>
+            <th><a th:href="@{printStats(old_d=${v},d=3)}">LOSSES</a></th>
+            <th><a th:href="@{printStats(old_d=${v},d=4)}">TIES</a></th>
+            <th><a th:href="@{printStats(old_d=${v},d=5)}">AVERAGE GOALS</a></th>
+            <th><a th:href="@{printStats(old_d=${v},d=6)}">MAX GOALS</a></th>
+        </tr>
+        <tr th:each="t : ${team}">
+            <td th:text="${t.id}">id</td>
+            <td th:text="${t.numberOfGames}">id</td>
+            <td th:text="${t.wins}">id</td>
+            <td th:text="${t.def}">id</td>
+            <td th:text="${t.emp}">id</td>
+            <td th:text="${t.goals1}">team 2 id</td>
+            <td th:text="${t.goals2}">team 2 id</td>
+        </tr>
+    </table>
+
+    <h1>Best player</h1>
+    <img th:src="${player.photo}" alt="">
+    <p>
+        <td th:text="${player.name}">name</td> - <td th:text="${goals}">goals</td> goals
+    </p>
+
+    <p><a th:href="@{menu}">Menu</a></p>
+
+</body>
+
+</html>

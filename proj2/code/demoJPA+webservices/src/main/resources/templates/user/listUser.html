@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>List of users</title>
+  <meta charset="utf8" />
+</head>
+
+<body>
+  <h1>List of users</h1>
+
+  <table border="1">
+    <tr>
+      <th>ID</th>
+      <th>NAME</th>
+      <th>EMAIL</th>
+      <th>PASSWORD</th>
+      <th>NUMBER</th>
+      <th>PERMISSION</th>
+    </tr>
+    <tr th:each="s : ${users}">
+      <td th:text="${s.id}">id</td>
+      <td th:text="${s.name}">name</td>
+      <td th:text="${s.email}">email</td>
+      <td th:text="${s.password}">password</td>
+      <td th:text="${s.number}">number</td>
+      <td th:text="${s.permission}">permission</td>
+    </tr>
+  </table>
+  <p><a th:href="@{register}">Add User</a></p>
+  <p><a th:href="@{menu}">Menu</a></p>
+
+</body>
+
+</html>

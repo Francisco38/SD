@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Menu</title>
+    <meta charset="utf8" />
+</head>
+
+<body>
+    <h1>Select Event Type</h1>
+
+    <p><a th:href="@{createEvent(id=${game.id},type=0)}">Start</a></p>
+    <p><a th:href="@{createEvent(id=${game.id},type=1)}">End</a></p>
+    <p><a th:href="@{createEvent(id=${game.id},type=2)}">Score</a></p>
+    <p><a th:href="@{createEvent(id=${game.id},type=3)}">Yellow Card</a></p>
+    <p><a th:href="@{createEvent(id=${game.id},type=4)}">Red Card</a></p>
+    <p><a th:href="@{createEvent(id=${game.id},type=5)}">Interrupted Game</a></p>
+    <p><a th:href="@{createEvent(id=${game.id},type=6)}">Resume Game</a></p>
+</body>
+
+</html>

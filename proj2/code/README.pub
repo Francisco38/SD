@@ -1,0 +1,13 @@
+# SD
+
+SD project
+
+how to run:
+
+1º-Abrir a pasta code com a feachure open folder no visual studio code
+2º-deve aparecer um popup no canto inferior direito selecionar open in container
+3º-Abrir o terminal e correr demoJPA+webservices
+4º-correr servidor primario:java -cp . ucDriveServer
+5º-de seguida correr ./mvnw spring-boot:run
+6º-esperar que finialize o processo
+7º-Aceder atraves do link http://localhost:8080/ ao site que ja se encontra disponibilizado

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <td th:text="${game.team1.name}"></td> vs <td th:text="${game.team2.name}"></td>
+    </title>
+    <meta charset="utf8" />
+</head>
+
+<body>
+    <h1>
+        <td th:text="${game.team1.name}"></td> vs <td th:text="${game.team2.name}"></td>
+    </h1>
+    <p><img th:src="${game.team1.logo}" class=" card__image" alt="" /> vs <img th:src="${game.team2.logo}"
+            class=" card__image" alt="" /> </p>
+    <p><b>Id:</b>
+        <td th:text="${game.id}">
+    </p>
+    <p><b>Location:</b>
+        <td th:text="${game.location}">
+    </p>
+    <p><b>Data:</b>
+        <td th:text="${game.data}">
+    </p>
+    <p><b>Score (<td th:text="${game.team1.name}"></td> vs <td th:text="${game.team2.name}"></td>):</b>
+        <td th:text="${game.score1}"></td> - <td th:text="${game.score2}">
+    </p>
+    <p></p>
+    <h3>
+        Events</td>
+    </h3>
+    <tr th:each="e : ${game.events}">
+        <p>
+            <b>
+                <td th:text="${e.data}"></td> -
+            </b>
+            <td th:text="${e.message}">
+        </p>
+    </tr>
+    <p><a th:href="@{addEvent(id=${game.id})}">Add Event</a></p>
+    <p><a th:href="@{checkEvents(id=${game.id})}">Check Events</a></p>
+    <p><a th:href="@{menu}">Menu</a></p>
+
+</body>
+
+</html>
